@@ -1,14 +1,17 @@
 {
-  "name": "react-typescript",
+  "name": "friendly-leavitt-wpgn09",
   "version": "1.0.0",
-  "description": "React and TypeScript example starter project",
-  "keywords": [
-    "typescript",
-    "react",
-    "starter"
-  ],
+  "description": "",
+  "keywords": [],
   "main": "src/index.tsx",
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "6.1.1",
+    "@fortawesome/free-solid-svg-icons": "6.1.1",
+    "@fortawesome/react-fontawesome": "0.2.0",
+    "@typescript-eslint/eslint-plugin": "5.30.6",
+    "@typescript-eslint/parser": "5.30.6",
+    "classnames": "2.3.1",
+    "date-fns": "2.28.0",
     "eslint": "8.19.0",
     "react": "18.0.0",
     "react-dom": "18.0.0",

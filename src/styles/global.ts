@@ -23,6 +23,7 @@ export default createGlobalStyle`
 
   body, input, button {
     font: 16px, 400, sans-serif;
+    font-family: 'Hind Vadodara', sans-serif;
   }
 
   a {
