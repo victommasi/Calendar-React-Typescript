@@ -1,5 +1,5 @@
-import React from "react";
-import { DayContainer, Button } from "./Day_Styles";
+import React, { memo } from "react";
+import { DayWrapper, Button } from "./Day_Styles";
 import { DayProps } from "../../types";
 import { format } from "date-fns";
 
@@ -8,23 +8,21 @@ const Day = ({ day, isSelected = false, selectDate }: DayProps) => {
   const parsedDayName = format(date, "EEE");
   const parsedDayNumber = format(date, "dd");
   const parsedDayMonth = format(date, "MMM");
-
-  const isCurrent =
-    new Date().toLocaleDateString() === date.toLocaleDateString();
+  const isToday = new Date().toLocaleDateString() === date.toLocaleDateString();
 
   return (
-    <DayContainer>
+    <DayWrapper>
       <Button
         onClick={() => selectDate(date)}
-        isCurrent={isCurrent}
+        isToday={isToday}
         isSelected={isSelected}
       >
-        <span className="day__name">{parsedDayName}</span>
-        <span className="day__number"> {parsedDayNumber} </span>
-        <span className="day__month"> {parsedDayMonth} </span>
+        <p className="day__name">{parsedDayName}</p>
+        <p className="day__number"> {parsedDayNumber} </p>
+        <p className="day__month"> {parsedDayMonth} </p>
       </Button>
-    </DayContainer>
+    </DayWrapper>
   );
 };
 
-export default Day;
+export default memo(Day);

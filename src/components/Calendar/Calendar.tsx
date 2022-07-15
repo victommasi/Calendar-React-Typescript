@@ -1,43 +1,46 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { CalendarContainer } from "./Calendar_Styles";
 import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import { add, sub, getYear } from "date-fns";
 import { CalendarProps } from "./types";
 import Day from "./components/Day";
-import { createWeekDaysArray } from "./utils";
+import { getWeekDaysByDate } from "./utils";
 import SlideButton from "./components/SlideButton";
 
-const Calendar = ({ customDate }: CalendarProps) => {
-  const [selectedDate, setSelectedDate] = useState<Date>();
-  const [weekDays, setWeekDays] = useState<Date[]>([]);
-  const [currentDay, setCurrentDay] = useState<Date>(
-    customDate ? new Date(customDate) : new Date()
+const Calendar = ({ date }: CalendarProps) => {
+  const [selectedDate, setSelectedDate] = useState<Date | null>(
+    date ? new Date(date) : null
   );
+  const [currentDay, setCurrentDay] = useState<Date>(
+    date ? new Date(date) : new Date()
+  );
+  const [weekDays, setWeekDays] = useState<Date[]>([]);
 
   useEffect(() => {
-    const weekDaysArr: Date[] = createWeekDaysArray(new Date());
+    const weekDaysArr: Date[] = getWeekDaysByDate(new Date());
     setWeekDays(weekDaysArr);
   }, []);
 
   useEffect(() => {
-    const weekDaysArr: Date[] = createWeekDaysArray(currentDay);
+    const weekDaysArr: Date[] = getWeekDaysByDate(currentDay);
     setWeekDays(weekDaysArr);
   }, [currentDay]);
 
-  const handlePrevWeek = (): void => {
+  const handlePrevWeek = useCallback((): void => {
     setCurrentDay(sub(currentDay, { weeks: 1 }));
-  };
+  }, [currentDay]);
 
-  const handleNextWeek = (): void => {
+  const handleNextWeek = useCallback((): void => {
     setCurrentDay(add(currentDay, { weeks: 1 }));
-  };
+  }, [currentDay]);
 
-  const handleSelectDate = (date: Date): void => {
+  const handleSelectDate = useCallback((date: Date): void => {
     setSelectedDate(date);
-  };
+  }, []);
 
   const checkIsSelectedDate = (date: Date): boolean => {
-    return date.toLocaleDateString() === selectedDate?.toLocaleDateString();
+    if (!selectedDate) return false;
+    return +date === +selectedDate;
   };
 
   return (

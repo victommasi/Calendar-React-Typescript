@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { SlideButtonProps } from "../../types";
 
@@ -14,4 +14,4 @@ const SlideButton = ({ onClick, icon }: SlideButtonProps) => {
   );
 };
 
-export default SlideButton;
+export default memo(SlideButton);

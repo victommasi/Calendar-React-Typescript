@@ -11,7 +11,7 @@ export type WeekProps = {
 };
 
 export type CalendarProps = {
-  customDate?: string;
+  date?: string;
 };
 
 export type SlideButtonProps = {

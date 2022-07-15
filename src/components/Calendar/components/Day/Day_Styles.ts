@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { colors, fontSize } from "../../../../styles";
 
-export const DayContainer = styled.li`
+export const DayWrapper = styled.li`
   margin: 0 10px;
   width: 40px;
   height: 60px;
@@ -28,7 +28,7 @@ export const Button = styled.button`
   background: ${(props: any) =>
     props.isSelected ? `${colors.primary}` : "white"};
   border: ${(props: any) =>
-    props.isCurrent ? `1px solid ${colors.primary}` : "none"};
+    props.isToday ? `1px solid ${colors.primary}` : "none"};
 
   .day__month {
     font-size: ${fontSize.xs};
