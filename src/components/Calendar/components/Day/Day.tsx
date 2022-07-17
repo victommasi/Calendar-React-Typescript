@@ -5,10 +5,11 @@ import { format } from "date-fns";
 
 const Day = ({ day, isSelected = false, selectDate }: DayProps) => {
   const date = new Date(day);
+  const today = new Date();
   const parsedDayName = format(date, "EEE");
   const parsedDayNumber = format(date, "dd");
   const parsedDayMonth = format(date, "MMM");
-  const isToday = new Date().toLocaleDateString() === date.toLocaleDateString();
+  const isToday = today.toLocaleDateString() === date.toLocaleDateString();
 
   return (
     <DayWrapper>
@@ -17,7 +18,7 @@ const Day = ({ day, isSelected = false, selectDate }: DayProps) => {
         isToday={isToday}
         isSelected={isSelected}
       >
-        <p className="day__name">{parsedDayName}</p>
+        <p className="day__name"> {parsedDayName} </p>
         <p className="day__number"> {parsedDayNumber} </p>
         <p className="day__month"> {parsedDayMonth} </p>
       </Button>

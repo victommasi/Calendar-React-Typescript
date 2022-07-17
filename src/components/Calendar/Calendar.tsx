@@ -46,9 +46,6 @@ const Calendar = ({ date }: CalendarProps) => {
   return (
     <CalendarContainer>
       <div className="calendar__row">
-        <p className="calendar__year">{getYear(currentDay)}</p>
-      </div>
-      <div className="calendar__row">
         <SlideButton onClick={handlePrevWeek} icon={faAngleLeft} />
         <ul className="calendar__week">
           {weekDays.map((day: Date) => (
@@ -61,6 +58,9 @@ const Calendar = ({ date }: CalendarProps) => {
           ))}
         </ul>
         <SlideButton onClick={handleNextWeek} icon={faAngleRight} />
+      </div>
+      <div className="calendar__row">
+        <p className="calendar__year">{getYear(currentDay)}</p>
       </div>
     </CalendarContainer>
   );

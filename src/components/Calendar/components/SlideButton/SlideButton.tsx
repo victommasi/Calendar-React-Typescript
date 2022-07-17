@@ -1,16 +1,13 @@
 import React, { memo } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { SlideButtonProps } from "../../types";
+import { SlideButton as SlideButtonWrapper } from "./SlideButton_Styles";
 
 const SlideButton = ({ onClick, icon }: SlideButtonProps) => {
   return (
-    <button
-      className="calendar__button"
-      type="button"
-      onClick={() => onClick()}
-    >
+    <SlideButtonWrapper type="button" onClick={() => onClick()}>
       <FontAwesomeIcon icon={icon} />
-    </button>
+    </SlideButtonWrapper>
   );
 };
 
