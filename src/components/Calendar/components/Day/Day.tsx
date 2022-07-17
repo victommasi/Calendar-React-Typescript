@@ -14,6 +14,7 @@ const Day = ({ day, isSelected = false, selectDate }: DayProps) => {
   return (
     <DayWrapper>
       <Button
+        data-testid="day-button"
         onClick={() => selectDate(date)}
         isToday={isToday}
         isSelected={isSelected}

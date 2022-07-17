@@ -20,7 +20,7 @@ export const Button = styled.button`
   justify-content: center;
   border-radius: inherit;
   transition: all ease-out 0.2s;
-  background: ${(props: any) =>
+  background-color: ${(props: any) =>
     props.isSelected ? `${colors.primary}` : "white"};
   border: ${(props: any) =>
     props.isToday ? `1px solid ${colors.primary}` : "none"};
